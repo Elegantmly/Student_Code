@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x<0){return false;}
+        else if(x<10){return true;}
+        else if(x%10==0){return false;}
+        else{
+            int y=x;
+            int i,a[10];
+            for(i=0;y>0;i++){y/=10;}
+            for(int j=0;j<(i/2);j++){
+                    a[j] = x%10;
+                    x /= 10;
+                }
+            if(i%2 != 0){x/=10;}
+            for(int j=i/2-1;j>=0;j--){// 13231  a[0]=1 a[1]=3 1001 a[0]=1 a[1]=0
+                if(x%10 != a[j]){return false;}
+                x/=10;
+            }
+            return true;
+            }
+            }
+            
+                    
+};
